@@ -1,0 +1,26 @@
+@import './base/minireset';
+$primary-background-color: #F0F0F0;
+
+/* --------------------------------------------------------------------
+	フォント
+--------------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans&amp;display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@font-face {
+	font-family: 'Optima';
+	src: url(./fonts/Optima.woff) format(opentype);
+}
+/* --------------------------------------------------------------------
+	common　共通エレメント
+-------------------------------------------------------------------- */
+
+html,body{
+    font-family: 'Roboto', sans-serif;
+}
+p{
+	font-family: 'Optima';
+	font-weight: 500;
+}
