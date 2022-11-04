@@ -11,16 +11,82 @@ $primary-background-color: #F0F0F0;
 
 @font-face {
 	font-family: 'Optima';
-	src: url(./fonts/Optima.woff) format(opentype);
+	src: url(./fonts/Optima.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'YuGothicM';
+	src: url(./fonts/YuGothic_Medium.otf) format('opentype');
+}
+@font-face {
+	font-family: 'YuGothicB';
+	src: url(./fonts/YuGothic_Bold.otf) format('opentype');
 }
 /* --------------------------------------------------------------------
 	common　共通エレメント
 -------------------------------------------------------------------- */
 
 html,body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Optima', sans-serif;
+	overflow-x: hidden;
 }
-p{
-	font-family: 'Optima';
-	font-weight: 500;
+.header-wrapper{
+	display: flex;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	width: 100%;
+	background: #000;
+	padding: 24px 60px;
+	justify-content: space-between;
+	align-items: center;
+
+	.detailsMenuItem{
+		a{
+			font-family: 'Optima';
+			font-weight: normal;
+			font-size: 16px;
+			letter-spacing: 0.05em;
+			line-height: 21px;
+			text-align: left;
+			color: #808080;
+			cursor: pointer;
+			margin-left: 80px;
+			&:first-child{
+				margin-left: 10px;
+			}
+		}
+	}
+}
+
+.main-wrapper{
+	.main_banner{
+		&_intro{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			.mainTitle{
+				font-family: 'Optima';
+				font-weight: normal;
+				font-size: 72px;
+				letter-spacing: 0.08em;
+				line-height: 32px;
+				text-align: center;
+				color: #fff;
+				text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+			}
+			.subTitle{
+				font-family: 'YuGothicM';
+				font-weight: 500;
+				font-size: 14px;
+				letter-spacing: 0.05em;
+				line-height: 26px;
+				text-align: center;
+				color: #fff;
+				text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+				margin-top: 30px;
+
+			}
+		}
+	}
 }
