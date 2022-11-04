@@ -11,15 +11,15 @@ $primary-background-color: #F0F0F0;
 
 @font-face {
 	font-family: 'Optima';
-	src: url(./fonts/Optima.ttf) format('truetype');
+	src: url(../fonts/OPTIMA.ttf) format('truetype');
 }
 @font-face {
 	font-family: 'YuGothicM';
-	src: url(./fonts/YuGothic_Medium.otf) format('opentype');
+	src: url(../fonts/yugothic.ttf) format('truetype');
 }
 @font-face {
 	font-family: 'YuGothicB';
-	src: url(./fonts/YuGothic_Bold.otf) format('opentype');
+	src: url(../fonts/yugothib.ttf) format('truetype');
 }
 /* --------------------------------------------------------------------
 	common　共通エレメント
@@ -28,6 +28,7 @@ $primary-background-color: #F0F0F0;
 html,body{
     font-family: 'Optima', sans-serif;
 	overflow-x: hidden;
+	background-color: $primary-background-color;
 }
 .header-wrapper{
 	display: flex;
@@ -60,6 +61,7 @@ html,body{
 
 .main-wrapper{
 	.main_banner{
+		position: relative;
 		&_intro{
 			position: absolute;
 			top: 50%;
@@ -87,6 +89,273 @@ html,body{
 				margin-top: 30px;
 
 			}
+			
 		}
+		.scroll_down{
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			animation: scroll-down 2s infinite;
+		}
+	}
+	.product_list{
+		max-width: 1280px;
+		margin: auto;
+		&--head{
+			font-family: 'Optima';
+			font-weight: normal;
+			font-size: 40px;
+			letter-spacing: 0.05em;
+			line-height: 1.2;
+			text-align: center;
+			color: #000;
+			margin-top: 140px;
+		}
+		&--block{
+			margin-top: 75px;
+			border-top: 1px solid #808080;
+			&:not(:first-of-type){
+				margin-top: 160px;
+			}
+			&_title{
+				font-family: 'Optima';
+				font-weight: normal;
+				font-size: 50px;
+				line-height: 1;
+				letter-spacing: 0.05em;
+				text-align: left;
+				color: #000;
+				margin-top: 25px;
+			}
+			&_content{
+				margin-top: 55px;
+				position: relative;
+				&:not(:first-of-type){
+					margin-top: 70px;
+				}
+				&_text{
+					font-family: 'Optima';
+					font-weight: normal;
+					font-size: 26px;
+					letter-spacing: 0.05em;
+					text-align: left;
+					color: #000;
+					display: flex;
+					align-items: center;
+					gap: 10px;
+					&::before{
+						content: '';
+						width: 0;
+						height: 0;
+						border-left: 5px solid transparent;
+						border-right: 5px solid transparent;
+						border-top: 10px solid #000;
+					}
+				}
+				.productSlider{
+					margin-top: 30px;
+					display: flex;
+					gap: 16px;
+					li{
+						width: 200px;
+						.product_image{
+							width: 200px;
+							height: 240px;
+							background: white;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+						}
+						.product_name{
+							font-family: 'Roboto';
+							font-weight: normal;
+							font-size: 14px;
+							letter-spacing: 0.04em;
+							line-height: 19px;
+							text-align: left;
+							color: #727272;
+							margin-top: 16px;
+
+						}
+						.product_price{
+							font-family: 'Roboto';
+							font-weight: normal;
+							font-size: 10px;
+							letter-spacing: 0.04em;
+							line-height: 18px;
+							text-align: left;
+							color: #727272;
+						}
+						
+					}
+				}
+
+				.viewAll{
+					width: 144px;
+					height: 32px;
+					background: #000;
+					font-family: 'Optima';
+					font-weight: normal;
+					font-size: 15px;
+					letter-spacing: 0.05em;
+					line-height: 32px;
+					text-align: center;
+					color: #fff;
+					display: block;
+					position: absolute;
+					top: 0;
+					right: 0;
+				}
+			}
+
+		
+		}
+	}
+
+	.gift_kit{
+		background: #000;
+		margin-top: 150px;
+		padding-top: 100px;
+		padding-bottom: 100px;
+		h2{
+			font-family: 'Optima';
+			font-weight: normal;
+			font-size: 50px;
+			letter-spacing: 0.05em;
+			line-height: 30px;
+			text-align: center;
+			color: #fff;
+		}
+		&--box{
+			max-width: 990px;
+			margin: auto;
+			margin-top: 50px;
+			display: flex;
+			gap: 20px;
+			justify-content: space-between;
+			&_text{
+				max-width: 360px;
+				width: 100%;
+				h3{
+					font-family: 'Optima';
+					font-weight: normal;
+					font-size: 30px;
+					letter-spacing: 0.05em;
+					line-height: 30px;
+					text-align: left;
+					color: #fff;
+				}
+				p{
+					font-family: 'Optima';
+					font-weight: normal;
+					font-size: 16px;
+					letter-spacing: 0.05em;
+					line-height: 30px;
+					text-align: left;
+					color: #fff;
+					margin-top: 20px;
+				}
+				a{
+					margin-top: 60px;
+					display: block;
+					font-family: 'Optima';
+					font-weight: normal;
+					font-size: 16px;
+					letter-spacing: 0.05em;
+					line-height: 30px;
+					text-align: center;
+					color: #000;
+					background: white;
+					width: 360px;
+					height: 68px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+			}
+		}
+	}
+}
+
+
+.footer-wrapper{
+	background-color: white;
+	padding-top: 160px;
+	padding-bottom: 100px;
+	.link{
+		width: 420px;
+		height: 80px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid #000;
+		margin: auto;
+		position: relative;
+
+		a{
+			font-family: 'Optima';
+			font-weight: normal;
+			font-size: 18px;
+			letter-spacing: 0.07em;
+			line-height: 26px;
+			text-align: center;
+			color: #000;
+			&::after{
+				content: '';
+				background: url(../img/arrow_right.svg) no-repeat;
+				width: 30px;
+				height: 4px;
+				background-size: contain ;
+				display: block;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				right: 30px;
+			}
+		}
+
+	}
+
+	.follow{
+		margin-top: 100px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		width: 240px;
+		text-align: center;
+		&_text{
+			font-family: 'Optima';
+			font-weight: normal;
+			font-size: 18px;
+			letter-spacing: 0.07em;
+			text-align: center;
+			color: #000;
+		}
+		.social-link{
+			display: flex;
+			gap: 45px;
+			margin-top: 35px;
+			img{
+				width: 25px;
+				height: 25px;
+				object-fit: contain;
+			}
+		}
+	}
+}
+
+@keyframes scroll-down {
+	0% {
+		bottom: 0;
+		opacity: 1;
+
+	}
+	70%{
+		bottom: -60px;
+		opacity: 0.8;
+
+	}
+	100%{
+		opacity: 0;
 	}
 }
