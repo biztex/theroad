@@ -18,9 +18,65 @@
           </a>
         </div>
         <div class="detailsMenuItem">
-          <a>for MEN</a>
-          <a>for WOMEN</a>
-          <a>GIFT KIT</a>
+          <div class="detailsMenuItem__box">
+            <a href="#for-men" class="detailsMenuItem__box--out">for MEN</a>
+            <div class="detailsMenuItem__box--content">
+              <ul class="detailsMenuItem__box--content_body">
+                <li>
+                  <p class="item_text">ー ITEM</p>
+                  <ul>
+                    <li>WALLETS</li>
+                    <li>BAGS</li>
+                    <li>ACCESSORIES</li>
+                    <li>CLOTHES</li>
+                    <li>OTHERS</li>
+                  </ul>
+                </li>
+                <li>
+                  <p class="item_text">ー PRICE</p>
+                  <ul>
+                    <li>〜10,000</li>
+                    <li>10,000〜30,000</li>
+                    <li>30,000〜50,000</li>
+                    <li>50,000〜100,000</li>
+                    <li>100,000〜</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="detailsMenuItem__box">
+            <a href="#for-women" class="detailsMenuItem__box--out">for WOMEN</a>
+            <div class="detailsMenuItem__box--content">
+              <ul class="detailsMenuItem__box--content_body">
+                <li>
+                  <p class="item_text">ー ITEM</p>
+                  <ul>
+                    <li>WALLETS</li>
+                    <li>BAGS</li>
+                    <li>ACCESSORIES</li>
+                    <li>CLOTHES</li>
+                    <li>OTHERS</li>
+                  </ul>
+                </li>
+                <li>
+                  <p class="item_text">ー PRICE</p>
+                  <ul>
+                    <li>〜10,000</li>
+                    <li>10,000〜30,000</li>
+                    <li>30,000〜50,000</li>
+                    <li>50,000〜100,000</li>
+                    <li>100,000〜</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="detailsMenuItem__box">
+            <a href="#gift_kit" class="detailsMenuItem__box--out disableDrop"
+              >GIFT KIT</a
+            >
+          </div>
         </div>
       </header>
       <!-- ヘッダー -->
@@ -28,7 +84,10 @@
       <main class="main-wrapper">
         <!-- バナー -->
         <div class="main_banner">
-          <img src="./img/main_banner.png" alt="for GIFT" />
+          <picture>
+            <source srcset="./img/main_banner.png" media="(min-width: 768px)" />
+            <img src="./img/sp_main_banner.png" alt="for GIFT" />
+          </picture>
           <div class="main_banner_intro">
             <h1 class="mainTitle">for GIFT</h1>
             <p class="subTitle">
@@ -41,7 +100,7 @@
           </div>
         </div>
 
-        <div class="product_list" id="for-man">
+        <div class="product_list" id="for-men">
           <h2 class="product_list--head">for MEN</h2>
           <div class="product_list--block">
             <h3 class="product_list--block_title">ITEM</h3>
@@ -1118,7 +1177,7 @@
 
       <footer class="footer-wrapper">
         <div class="link">
-          <a href="">THESHOP YOHJI <br />YAMAMOTO</a>
+          <a href="">THESHOP YOHJI YAMAMOTO</a>
         </div>
         <div class="follow">
           <p class="follow_text">FOLLOW US</p>

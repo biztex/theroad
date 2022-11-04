@@ -82,3 +82,11 @@ th {
     padding: 0;
     text-align: left;
 }
+
+
+$tablet: 767px;
+@mixin media-screen($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}

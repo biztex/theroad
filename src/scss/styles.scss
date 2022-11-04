@@ -29,33 +29,176 @@ html,body{
     font-family: 'Optima', sans-serif;
 	overflow-x: hidden;
 	background-color: $primary-background-color;
+	@include media-screen($tablet){
+		background-color: white;
+	}
 }
 .header-wrapper{
 	display: flex;
-	position: -webkit-sticky;
-	position: sticky;
+	position: fixed;
 	top: 0;
 	width: 100%;
 	background: #000;
 	padding: 24px 60px;
 	justify-content: space-between;
 	align-items: center;
-
+	z-index: 2;
+	@include media-screen($tablet){
+		flex-direction: column;
+		gap: calc(40/750 * 100vw);
+		padding: calc(24/750 * 100vw) calc(60/750 * 100vw);
+	}
+	.logo{
+		img{
+			display: block;
+		}
+	}
 	.detailsMenuItem{
-		a{
-			font-family: 'Optima';
-			font-weight: normal;
-			font-size: 16px;
-			letter-spacing: 0.05em;
-			line-height: 21px;
-			text-align: left;
-			color: #808080;
-			cursor: pointer;
-			margin-left: 80px;
-			&:first-child{
-				margin-left: 10px;
+		display: flex;
+		gap: 80px;
+		@include media-screen($tablet){
+			gap: 0;
+		}
+		&__box{
+			@include media-screen($tablet){
+				border-right: 1px solid #535353;
+				padding-right: calc(50/750 * 100vw);
+				padding-left: calc(50/750 * 100vw);
+				&:first-of-type{
+					padding-left: 0;
+				}
+				&:last-of-type{
+					padding-right: 0;
+					border-right: none;
+				}
+			}
+			&--out{
+				font-family: 'Optima';
+				font-weight: normal;
+				font-size: 16px;
+				letter-spacing: 0.05em;
+				line-height: 21px;
+				text-align: left;
+				color: #fff;
+				padding: 5px 0;
+				cursor: pointer;
+				display: flex;
+				gap: 10px;
+				align-items: center;
+				@include media-screen($tablet){
+					font-size: calc(28/750 * 100vw);
+					display: block;
+					gap: 0;
+					white-space: nowrap;
+				}
+				&::after{
+					content: '';
+					background: url(../img/arrow_down.svg) no-repeat;
+					display: block;
+					width: 9px;
+					height: 5px;
+					object-fit: contain;
+					@include media-screen($tablet){
+						display: none;
+					}
+				}
+
+				&.disableDrop{
+					&::after{
+						display: none;
+					}
+				}
+				&:hover{
+					+ {
+						.detailsMenuItem__box--content{
+							display: block;
+						}	
+					}
+				}
+			}
+			&--content{
+				position: fixed;
+				z-index: 10;
+				background: white;
+				padding: 18px 30px;
+				box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+				@include media-screen($tablet){
+					padding: calc(60/750 * 100vw) calc(56/750 * 100vw);
+					left: 20px; 
+					margin-top: calc(23/750 * 100vw);
+				}
+				display: none;
+				&:hover{
+					display: block;
+				}
+				&_body{
+					display: flex;
+					gap: 60px;
+					@include media-screen($tablet){
+						gap: calc(76/750 * 100vw);
+						flex-direction: column;
+					} 
+					.item_text{
+						font-family: 'Optima';
+						font-weight: normal;
+						font-size: 10px;
+						letter-spacing: 0.05em;
+						line-height: 21px;
+						text-align: left;
+						color: #ccc;
+						margin-bottom: 10px;
+						@include media-screen($tablet){
+							flex-direction: column;
+							font-size: calc(20/750 * 100vw);
+							letter-spacing: 0.05em;
+							line-height:  calc(31/750 * 100vw);
+							margin-bottom: calc(44/750 * 100vw);
+
+						} 
+					}
+					ul{
+						@include media-screen($tablet){
+							display: grid;
+							grid-gap: calc(28/750 * 100vw) calc(89/750 * 100vw);
+							grid-template-columns: 1fr 1fr;
+							font-size: calc(25/750 * 100vw);
+							line-height:  calc(31/750 * 100vw);
+							flex-wrap: wrap;
+						} 
+						li{
+							font-family: 'Optima';
+							font-weight: normal;
+							font-size: 13px;
+							letter-spacing: 0.05em;
+							line-height: 21px;
+							text-align: left;
+							color: #ccc;
+							cursor: pointer;
+
+							@include media-screen($tablet){
+								flex-direction: column;
+								font-size: calc(25/750 * 100vw);
+								line-height:  calc(31/750 * 100vw);
+							} 
+						}
+					}
+				}
 			}
 		}
+		// a{
+		// 	font-family: 'Optima';
+		// 	font-weight: normal;
+		// 	font-size: 16px;
+		// 	letter-spacing: 0.05em;
+		// 	line-height: 21px;
+		// 	text-align: left;
+		// 	color: #808080;
+		// 	cursor: pointer;
+		// 	margin-left: 80px;
+		// 	&:first-child{
+		// 		margin-left: 10px;
+		// 	}
+		// }
 	}
 }
 
@@ -64,9 +207,11 @@ html,body{
 		position: relative;
 		&_intro{
 			position: absolute;
-			top: 50%;
+			top: 57%;
 			left: 50%;
 			transform: translate(-50%, -50%);
+			width: 80%;
+
 			.mainTitle{
 				font-family: 'Optima';
 				font-weight: normal;
@@ -76,6 +221,12 @@ html,body{
 				text-align: center;
 				color: #fff;
 				text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+				white-space: nowrap;
+				@include media-screen($tablet){
+					font-size: calc(96/750 * 100vw);
+					letter-spacing: 0.08em;
+					line-height: calc(32/750 * 100vw);
+				}
 			}
 			.subTitle{
 				font-family: 'YuGothicM';
@@ -87,6 +238,14 @@ html,body{
 				color: #fff;
 				text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
 				margin-top: 30px;
+				@include media-screen($tablet){
+					font-size: calc(24/750 * 100vw);
+					letter-spacing: 0.05em;
+					line-height: calc(38/750 * 100vw);
+					margin-top: calc(38/750 * 100vw);
+					display: block;
+
+				}
 
 			}
 			
@@ -100,7 +259,11 @@ html,body{
 	}
 	.product_list{
 		max-width: 1280px;
+		width: 96%;
 		margin: auto;
+		@include media-screen($tablet){
+			width: 94%;
+		}
 		&--head{
 			font-family: 'Optima';
 			font-weight: normal;
@@ -110,12 +273,24 @@ html,body{
 			text-align: center;
 			color: #000;
 			margin-top: 140px;
+			@include media-screen($tablet){
+				font-size: calc(64/750 * 100vw);
+				margin-top: calc(128/750 * 100vw);
+
+			}
 		}
 		&--block{
 			margin-top: 75px;
 			border-top: 1px solid #808080;
+			@include media-screen($tablet){
+				margin-top: calc(100/750 * 100vw);
+
+			}
 			&:not(:first-of-type){
 				margin-top: 160px;
+				@include media-screen($tablet){
+					margin-top: calc(200/750 * 100vw);
+				}
 			}
 			&_title{
 				font-family: 'Optima';
@@ -126,10 +301,17 @@ html,body{
 				text-align: left;
 				color: #000;
 				margin-top: 25px;
+				@include media-screen($tablet){
+					font-size: calc(80/750 * 100vw);
+					margin-top: calc(25/750 * 100vw);
+				}
 			}
 			&_content{
 				margin-top: 55px;
 				position: relative;
+				@include media-screen($tablet){
+					margin-top: calc(55/750 * 100vw);
+				}
 				&:not(:first-of-type){
 					margin-top: 70px;
 				}
@@ -143,6 +325,9 @@ html,body{
 					display: flex;
 					align-items: center;
 					gap: 10px;
+					@include media-screen($tablet){
+						font-size: calc(40/750 * 100vw);
+					}
 					&::before{
 						content: '';
 						width: 0;
@@ -156,8 +341,25 @@ html,body{
 					margin-top: 30px;
 					display: flex;
 					gap: 16px;
+					@include media-screen(1335px){
+						margin-top: calc(30/1335 * 100vw);
+						gap: calc(16/1335 * 100vw);
+					}
+					@include media-screen($tablet){
+						display: grid;
+						grid-gap: 20px;
+						grid-template-columns: 1fr 1fr;
+						margin-top: calc(48/750 * 100vw);
+
+					}
 					li{
 						width: 200px;
+						@include media-screen(1335px){
+							width: calc(200/1335 * 100vw);
+						}
+						@include media-screen($tablet){
+							width: 100%;
+						}
 						.product_image{
 							width: 200px;
 							height: 240px;
@@ -165,6 +367,17 @@ html,body{
 							display: flex;
 							align-items: center;
 							justify-content: center;
+							@include media-screen(1335px){
+								width: calc(200/1335 * 100vw);
+								height: calc(240/1335 * 100vw);
+								padding: 20px ;
+							}
+							@include media-screen($tablet){
+								width: 100%;
+								height: calc(400/750 * 100vw);
+
+							}
+							
 						}
 						.product_name{
 							font-family: 'Roboto';
@@ -205,10 +418,15 @@ html,body{
 					position: absolute;
 					top: 0;
 					right: 0;
+					@include media-screen($tablet){
+						font-size: calc(20/750 * 100vw);
+						width: calc(144/750 * 100vw);
+						height: calc(45/750 * 100vw);
+						line-height: calc(50/750 * 100vw);
+					}
 				}
-			}
 
-		
+			}
 		}
 	}
 
@@ -217,6 +435,11 @@ html,body{
 		margin-top: 150px;
 		padding-top: 100px;
 		padding-bottom: 100px;
+		@include media-screen($tablet){
+			padding-top: calc(128/750 * 100vw);
+			padding-bottom: calc(80/750 * 100vw);
+			margin-top: calc(184/750 * 100vw);
+		}
 		h2{
 			font-family: 'Optima';
 			font-weight: normal;
@@ -225,17 +448,38 @@ html,body{
 			line-height: 30px;
 			text-align: center;
 			color: #fff;
+			@include media-screen($tablet){
+				font-size: calc(80/750 * 100vw);
+			}
 		}
 		&--box{
 			max-width: 990px;
+			width: 96%;
 			margin: auto;
 			margin-top: 50px;
 			display: flex;
 			gap: 20px;
 			justify-content: space-between;
+			@include media-screen($tablet){
+				flex-direction: column;
+				width: 94%;
+				margin-top: calc(80/750 * 100vw);
+				gap: calc(64/750 * 100vw);
+
+			}
+			&_image{
+				img{
+					@include media-screen($tablet){
+						width: 100%;
+					}
+				}
+			}
 			&_text{
 				max-width: 360px;
 				width: 100%;
+				@include media-screen($tablet){
+					max-width: 100%;
+				}
 				h3{
 					font-family: 'Optima';
 					font-weight: normal;
@@ -244,6 +488,9 @@ html,body{
 					line-height: 30px;
 					text-align: left;
 					color: #fff;
+					@include media-screen($tablet){
+						font-size: calc(42/750 * 100vw);
+					}
 				}
 				p{
 					font-family: 'Optima';
@@ -254,6 +501,11 @@ html,body{
 					text-align: left;
 					color: #fff;
 					margin-top: 20px;
+					@include media-screen($tablet){
+						font-size: calc(26/750 * 100vw);
+						margin-top: calc(20/750 * 100vw);
+						line-height: calc(44/750* 100vw);
+					}
 				}
 				a{
 					margin-top: 60px;
@@ -271,6 +523,16 @@ html,body{
 					display: flex;
 					justify-content: center;
 					align-items: center;
+					@include media-screen($tablet){
+						margin-top: calc(90/750 * 100vw);
+						line-height: 1;
+						width: 100%;
+						max-width: 660px;
+						margin-left: auto;
+						margin-right: auto;
+						font-size: calc(26/750 * 100vw);
+						height: calc(128/750 * 100vw);
+					}
 				}
 			}
 		}
@@ -282,6 +544,10 @@ html,body{
 	background-color: white;
 	padding-top: 160px;
 	padding-bottom: 100px;
+	@include media-screen($tablet){
+		padding-top: calc(144/750 * 100vw);
+		padding-bottom: calc(120/750 * 100vw);
+	}
 	.link{
 		width: 420px;
 		height: 80px;
@@ -291,15 +557,23 @@ html,body{
 		border: 1px solid #000;
 		margin: auto;
 		position: relative;
+		@include media-screen($tablet){
+			width: calc(670/750 * 100vw);
+			height:calc(128/750 * 100vw);
+		}
 
 		a{
 			font-family: 'Optima';
 			font-weight: normal;
 			font-size: 18px;
 			letter-spacing: 0.07em;
-			line-height: 26px;
+			line-height: 1;
 			text-align: center;
 			color: #000;
+			@include media-screen($tablet){
+				font-size: calc(26/750 * 100vw);
+
+			}
 			&::after{
 				content: '';
 				background: url(../img/arrow_right.svg) no-repeat;
@@ -323,6 +597,10 @@ html,body{
 		display: block;
 		width: 240px;
 		text-align: center;
+		@include media-screen($tablet){
+			width: calc(444/750 * 100vw);
+			margin-top: calc(115/750 * 100vw);
+		}
 		&_text{
 			font-family: 'Optima';
 			font-weight: normal;
@@ -330,15 +608,27 @@ html,body{
 			letter-spacing: 0.07em;
 			text-align: center;
 			color: #000;
+			@include media-screen($tablet){
+				font-size: calc(28/750 * 100vw);
+				margin-top: calc(115/750 * 100vw);
+			}
 		}
 		.social-link{
 			display: flex;
 			gap: 45px;
 			margin-top: 35px;
+			@include media-screen($tablet){
+				gap: calc(96/750 * 100vw);
+				margin-top: calc(69/750 * 100vw);
+			}
 			img{
 				width: 25px;
 				height: 25px;
 				object-fit: contain;
+				@include media-screen($tablet){
+					width: calc(42/750 * 100vw);
+					height: calc(42/750 * 100vw);
+				}
 			}
 		}
 	}
