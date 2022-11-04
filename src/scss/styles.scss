@@ -79,18 +79,25 @@ html,body{
 				letter-spacing: 0.05em;
 				line-height: 21px;
 				text-align: left;
-				color: #fff;
+				color: #808080;
 				padding: 5px 0;
 				cursor: pointer;
 				display: flex;
 				gap: 10px;
 				align-items: center;
+				&.active{
+					color: white;
+					&::after{
+						filter: none;
+					}
+				}
 				@include media-screen($tablet){
 					font-size: calc(28/750 * 100vw);
 					display: block;
 					gap: 0;
 					white-space: nowrap;
 				}
+				
 				&::after{
 					content: '';
 					background: url(../img/arrow_down.svg) no-repeat;
@@ -98,6 +105,7 @@ html,body{
 					width: 9px;
 					height: 5px;
 					object-fit: contain;
+					filter: invert(57%) sepia(11%) saturate(16%) hue-rotate(2deg) brightness(86%) contrast(82%);
 					@include media-screen($tablet){
 						display: none;
 					}
@@ -147,6 +155,9 @@ html,body{
 						text-align: left;
 						color: #ccc;
 						margin-bottom: 10px;
+						&.active{
+							color: #000;
+						}
 						@include media-screen($tablet){
 							flex-direction: column;
 							font-size: calc(20/750 * 100vw);
@@ -166,20 +177,28 @@ html,body{
 							flex-wrap: wrap;
 						} 
 						li{
-							font-family: 'Optima';
-							font-weight: normal;
-							font-size: 13px;
-							letter-spacing: 0.05em;
-							line-height: 21px;
-							text-align: left;
-							color: #ccc;
-							cursor: pointer;
+							margin-top: 6px;
+							a{
+								font-family: 'Optima';
+								font-weight: normal;
+								font-size: 13px;
+								letter-spacing: 0.05em;
+								line-height: 21px;
+								text-align: left;
+								color: #ccc;
+								cursor: pointer;
+								@include media-screen($tablet){
+									flex-direction: column;
+									font-size: calc(25/750 * 100vw);
+									line-height:  calc(31/750 * 100vw);
+								} 
+								&.active{
+									color: #000;
+								}
+							}
+							
 
-							@include media-screen($tablet){
-								flex-direction: column;
-								font-size: calc(25/750 * 100vw);
-								line-height:  calc(31/750 * 100vw);
-							} 
+							
 						}
 					}
 				}
@@ -325,6 +344,7 @@ html,body{
 					display: flex;
 					align-items: center;
 					gap: 10px;
+					position: relative;
 					@include media-screen($tablet){
 						font-size: calc(40/750 * 100vw);
 					}
